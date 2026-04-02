@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab 2 (MD5)</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div>
+      <h1>Лабораторна робота №2 — Створення програмного засобу для забезпечення цілісності інформації</h1>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <a class="tab" href="/lab1">Lab 1</a>
+    <a class="tab active" href="/lab2">Lab 2</a>
+    <a class="tab" href="/lab3">Lab 3</a>
+    <a class="tab" href="/lab4">Lab 4</a>
+    <a class="tab" href="/lab5">Lab 5</a>
+    <a class="tab right" href="/">Home</a>
+  </nav>
+
+  <section class="card">
+    <h2>Хешування MD5 для рядка</h2>
+    <div class="grid">
+      <div class="field" style="flex:1 1 520px; max-width: 620px;">
+        <label for="textIn">Текст</label>
+        <input id="textIn" type="text" value="" />
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="btnHashText">Порахувати MD5</button>
+      </div>
+
+      <div class="field" style="flex:1 1 520px; max-width: 620px;">
+        <label for="textMd5Out">MD5 (HEX)</label>
+        <input id="textMd5Out" type="text" readonly />
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Хешування MD5 для файлу з текстом</h2>
+    <div class="grid">
+      <div class="field">
+        <label for="fileIn">Файл</label>
+        <input id="fileIn" type="file" />
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="btnHashFile">Порахувати MD5 файлу</button>
+      </div>
+
+      <div class="field" style="flex:1 1 520px; max-width: 620px;">
+        <label for="fileMd5Out">MD5 (HEX)</label>
+        <input id="fileMd5Out" type="text" readonly />
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Перевірка цілісності файл з текстом і файл з хешом</h2>
+    <div class="grid">
+      <div class="field">
+        <label for="verifyFileIn">Файл</label>
+        <input id="verifyFileIn" type="file" />
+      </div>
+
+      <div class="field">
+        <label for="verifyMd5In">Файл з MD5 (hex)</label>
+        <input id="verifyMd5In" type="file" />
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="btnVerify">Перевірити</button>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="summary-label">OK</div>
+          <div class="summary-value mono" id="verifyOk">—</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Expected</div>
+          <div class="summary-value mono" id="verifyExpected">—</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Actual</div>
+          <div class="summary-value mono" id="verifyActual">—</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Запис MD5 хешу у файл</h2>
+    <div class="grid">
+      <div class="field" style="flex:1 1 520px; max-width: 620px;">
+        <label for="saveHashIn">MD5 (HEX)</label>
+        <input id="saveHashIn" type="text" placeholder="Встав сюди md5..." />
+      </div>
+
+      <div class="field">
+        <label for="savePathIn">Вкажи назву файлу</label>
+        <input id="savePathIn" type="text" value="" />
+      </div>
+
+      <div class="actions">
+        <button id="btnSave">Зберегти</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>RFC 1321 - Тестування реалізації</h2>
+
+    <div class="actions">
+      <button class="primary" id="btnRunTests">Перевірити тести</button>
+    </div>
+
+    <div class="table-wrap" style="margin-top:16px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Message</th>
+            <th>Expected MD5</th>
+            <th>Program MD5</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="rfcTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Лог</h2>
+    <pre class="log mono" id="log"></pre>
+  </section>
+</div>
+
+<script src="/static/js/lab2.js"></script>
+</body>
+</html>

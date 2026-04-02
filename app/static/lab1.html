@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab 1 — Генератор</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Лабораторна робота №1 — Генератор псевдовипадкових чисел</h1>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <a class="tab active" href="/lab1">Lab 1</a>
+      <a class="tab" href="/lab2">Lab 2</a>
+      <a class="tab" href="/lab3">Lab 3</a>
+      <a class="tab" href="/lab4">Lab 4</a>
+      <a class="tab" href="/lab5">Lab 5</a>
+      <a class="tab right" href="/">Home</a>
+    </nav>
+
+    <section class="card">
+      <h2>Параметри генератора</h2>
+
+      <div class="params-row">
+        <div class="field">
+          <label for="m">m (модуль)</label>
+          <input id="m" type="number" min="1" value="2147483645" />
+        </div>
+
+        <div class="field">
+          <label for="a">a (множник)</label>
+          <input id="a" type="number" min="0" value="32768" />
+        </div>
+
+        <div class="field">
+          <label for="c">c (приріст)</label>
+          <input id="c" type="number" min="0" value="46368" />
+        </div>
+
+        <div class="field">
+          <label for="x0">x0 (seed)</label>
+          <input id="x0" type="number" min="0" value="37" />
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top: 12px;">
+        <div>
+          <label for="count">Кількість чисел (N)</label>
+          <input id="count" type="number" min="1" value="1000" />
+        </div>
+
+        <div>
+          <label for="show">Показати перші</label>
+          <input id="show" type="number" min="0" value="200" />
+        </div>
+
+        <div>
+          <label for="pairs">Кількість пар для тесту Чезаро</label>
+          <input id="pairs" type="number" min="1" value="5000" />
+        </div>
+
+        <div class="actions">
+          <button id="btnVariant24">Підставити варіант 24</button>
+          <button id="btnGenerate" class="primary">Генерувати</button>
+          <button id="btnSave">Зберегти в текстовий файл</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Результати тестування</h2>
+
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="summary-label">Період генератора</div>
+          <div id="periodOut" class="summary-value mono">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-label">Оцінка π (Лемер)</div>
+          <div id="piLehmerOut" class="summary-value mono">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-label">Оцінка π (системний ПВЧ)</div>
+          <div id="piSystemOut" class="summary-value mono">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-label">Табличне значення π</div>
+          <div id="piTableOut" class="summary-value mono">3.141593</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Логи програми</h2>
+      <pre id="log" class="log">Готово. Натисни генерувати.</pre>
+    </section>
+
+    <section class="card">
+      <h2>Згенеровані числа</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>xᵢ</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

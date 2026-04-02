@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лабораторна 5 — Цифровий підпис</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Лабораторна робота №5 - Цифровий підпис</h1>
+      <p>Створення і перевірка цифрового підпису за стандартом DSS</p>
+    </div>
+
+    <nav class="tabs">
+      <a class="tab" href="/lab1">Lab 1</a>
+      <a class="tab" href="/lab2">Lab 2</a>
+      <a class="tab" href="/lab3">Lab 3</a>
+      <a class="tab" href="/lab4">Lab 4</a>
+      <a class="tab active" href="/lab5">Lab 5</a>
+      <a class="tab right" href="/">Home</a>
+    </nav>
+
+    <div class="card" id="keys">
+      <h2>Генерація ключів</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="keySize">Розмір ключа</label>
+          <input id="keySize" type="number" value="2048" />
+        </div>
+
+        <div class="field">
+          <label for="keyPassword">Пароль для приватного ключа</label>
+          <input id="keyPassword" type="text" placeholder="Необов'язково" />
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="generateKeysBtn">Згенерувати ключі</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="sign-text">
+      <h2>Підпис тексту</h2>
+      <div class="grid">
+        <div class="field" style="flex: 1 1 100%; max-width: 100%;">
+          <label for="textToSign">Текст</label>
+          <input
+            id="textToSign"
+            type="text"
+            placeholder="Введи текст для підпису"
+            style="max-width: 100%;"
+          />
+        </div>
+
+        <div class="field">
+          <label for="privateKeyFile">Приватний ключ</label>
+          <input id="privateKeyFile" type="file" accept=".pem,.key" />
+        </div>
+
+        <div class="field">
+          <label for="signTextPassword">Пароль приватного ключа</label>
+          <input id="signTextPassword" type="text" placeholder="Необов'язково" />
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="signTextBtn">Підписати текст</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="verify-text">
+      <h2>Перевірка підпису тексту</h2>
+      <div class="grid">
+        <div class="field" style="flex: 1 1 100%; max-width: 100%;">
+          <label for="textToVerify">Текст</label>
+          <input
+            id="textToVerify"
+            type="text"
+            placeholder="Введи текст для перевірки"
+            style="max-width: 100%;"
+          />
+        </div>
+
+        <div class="field">
+          <label for="signatureFileText">Файл підпису</label>
+          <input id="signatureFileText" type="file" accept=".txt,.sig" />
+        </div>
+
+        <div class="field">
+          <label for="publicKeyFileVerifyText">Публічний ключ</label>
+          <input id="publicKeyFileVerifyText" type="file" accept=".pem,.pub,.key" />
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="verifyTextBtn">Перевірити текст</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="sign-file">
+      <h2>Підпис файлу</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="fileToSign">Файл</label>
+          <input id="fileToSign" type="file" />
+        </div>
+
+        <div class="field">
+          <label for="privateKeyFileSignFile">Приватний ключ</label>
+          <input id="privateKeyFileSignFile" type="file" accept=".pem,.key" />
+        </div>
+
+        <div class="field">
+          <label for="signFilePassword">Пароль приватного ключа</label>
+          <input id="signFilePassword" type="text" placeholder="Необов'язково" />
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="signFileBtn">Підписати файл</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="verify-file">
+      <h2>Перевірка підпису файлу</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="fileToVerify">Файл</label>
+          <input id="fileToVerify" type="file" />
+        </div>
+
+        <div class="field">
+          <label for="signatureFile">Файл підпису</label>
+          <input id="signatureFile" type="file" accept=".txt,.sig" />
+        </div>
+
+        <div class="field">
+          <label for="publicKeyFileVerify">Публічний ключ</label>
+          <input id="publicKeyFileVerify" type="file" accept=".pem,.pub,.key" />
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="verifyFileBtn">Перевірити файл</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/js/lab5.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab 3</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Лабораторна робота №3 — Створення програмного засобу для шифрування інформації</h1>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <a class="tab" href="/lab1">Lab 1</a>
+      <a class="tab" href="/lab2">Lab 2</a>
+      <a class="tab active" href="/lab3">Lab 3</a>
+      <a class="tab" href="/lab4">Lab 4</a>
+      <a class="tab" href="/lab5">Lab 5</a>
+      <a class="tab right" href="/">Home</a>
+    </nav>
+
+    <section class="card">
+      <h2>Шифрування файлу за алгоритмом RC5</h2>
+
+      <div class="grid">
+        <div class="field">
+          <label for="encryptPassword">Парольна фраза</label>
+          <input id="encryptPassword" type="text" placeholder="Введіть парольну фразу" />
+        </div>
+
+        <div class="field">
+          <label for="encryptFile">Файл</label>
+          <input id="encryptFile" type="file" />
+        </div>
+
+        <div class="actions">
+          <button id="encryptBtn" class="primary" type="button">Зашифрувати файл</button>
+        </div>
+
+        <div class="field">
+          <label for="encryptStatus">Результат</label>
+          <input id="encryptStatus" type="text" readonly />
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Дешифрування файлу за алгоритмом RC5</h2>
+
+      <div class="grid">
+        <div class="field">
+          <label for="decryptPassword">Парольна фраза</label>
+          <input id="decryptPassword" type="text" placeholder="Введіть ту саму парольну фразу" />
+        </div>
+
+        <div class="field">
+          <label for="decryptFile">Зашифрований файл</label>
+          <input id="decryptFile" type="file" />
+        </div>
+
+        <div class="actions">
+          <button id="decryptBtn" class="primary" type="button">Дешифрувати файл</button>
+        </div>
+
+        <div class="field">
+          <label for="decryptStatus">Результат</label>
+          <input id="decryptStatus" type="text" readonly />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/js/lab3.js"></script>
+</body>
+</html>

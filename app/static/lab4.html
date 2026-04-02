@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab 4</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Лабораторна робота №4 - Алгоритм асиметричного шифрування RSA</h1>
+        <div class="hint">Створення програмної реалізації алгоритму шифрування з відкритим ключем rsa з використанням криптографічних бібліотек</div>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <a class="tab" href="/lab1">Lab 1</a>
+      <a class="tab" href="/lab2">Lab 2</a>
+      <a class="tab" href="/lab3">Lab 3</a>
+      <a class="tab active" href="/lab4">Lab 4</a>
+      <a class="tab" href="/lab5">Lab 5</a>
+      <a class="tab right" href="/">Home</a>
+    </nav>
+
+    <section class="card">
+      <h2>1. Генерація RSA ключів</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="keySize">Розмір ключа</label>
+          <input id="keySize" type="number" value="2048" min="2048" step="256" />
+        </div>
+
+        <div class="field">
+          <label for="keyPassword">Пароль для приватного ключа (необов'язково)</label>
+          <input id="keyPassword" type="text" placeholder="Введи пароль або залиш порожнім" />
+        </div>
+
+        <div class="actions">
+          <button id="generateKeysBtn" class="primary">Згенерувати ключі</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Шифрування файлу RSA</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="encryptFile">Файл для шифрування</label>
+          <input id="encryptFile" type="file" />
+        </div>
+
+        <div class="field">
+          <label for="publicKeyFile">Публічний ключ (.pem)</label>
+          <input id="publicKeyFile" type="file" accept=".pem" />
+        </div>
+
+        <div class="actions">
+          <button id="encryptBtn" class="primary">Зашифрувати файл</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Дешифрування файлу RSA</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="decryptFile">Файл для дешифрування</label>
+          <input id="decryptFile" type="file" />
+        </div>
+
+        <div class="field">
+          <label for="privateKeyFile">Приватний ключ (.pem)</label>
+          <input id="privateKeyFile" type="file" accept=".pem" />
+        </div>
+
+        <div class="field">
+          <label for="privateKeyPassword">Пароль приватного ключа (необов'язково)</label>
+          <input id="privateKeyPassword" type="text" placeholder="Введи пароль або залиш порожнім" />
+        </div>
+
+        <div class="actions">
+          <button id="decryptBtn" class="primary">Дешифрувати файл</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Порівняння швидкості RSA та RC5</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="compareFile">Файл для тестування</label>
+          <input id="compareFile" type="file" />
+        </div>
+
+        <div class="field">
+          <label for="comparePublicKeyFile">Публічний ключ RSA (.pem)</label>
+          <input id="comparePublicKeyFile" type="file" accept=".pem" />
+        </div>
+
+        <div class="field">
+          <label for="rc5Password">Пароль для RC5</label>
+          <input id="rc5Password" type="text" placeholder="Введи пароль для RC5" />
+        </div>
+
+        <div class="actions">
+          <button id="compareBtn" class="primary">Порівняти швидкість</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Результати порівняння</h2>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="summary-label">Назва файлу</div>
+          <div class="summary-value mono" id="resultFileName">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-label">Розмір файлу (байт)</div>
+          <div class="summary-value mono" id="resultFileSize">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-label">Час RSA</div>
+          <div class="summary-value mono" id="resultRsaTime">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-label">Час RC5</div>
+          <div class="summary-value mono" id="resultRc5Time">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-label">Швидший алгоритм</div>
+          <div class="summary-value mono" id="resultFaster">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-label">Різниця в часі</div>
+          <div class="summary-value mono" id="resultDiff">—</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/js/lab4.js"></script>
+</body>
+</html>
