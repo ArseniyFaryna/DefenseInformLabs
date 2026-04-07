@@ -5,3 +5,4 @@ pytest
 python-multipart
 cryptography
 pytest-cov
+httpx
